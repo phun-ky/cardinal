@@ -1,6 +1,6 @@
 {
   "name": "@phun-ky/cardinal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A snippet that gives you the cardinal direction based on degrees",
   "keywords": [
     "cardinal",

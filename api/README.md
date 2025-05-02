@@ -2,7 +2,7 @@
 
 ---
 
-> Last updated 2025-05-02T20:50:00.349Z
+> Last updated 2025-05-02T21:02:06.958Z
 
 ## Functions
 
@@ -12,7 +12,7 @@
 function cardinal_direction(degrees): string;
 ```
 
-Defined in: main.ts:18
+Defined in: [main.ts:18](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L18)
 
 Gives you the cardinal direction based on degrees.
 Note: The degrees start at 0, which is EAST (originally, north should be 0, but here, north is 270),
@@ -53,7 +53,7 @@ const direction = cardinal_direction(45);
 function cardinal_direction_crude(degrees): string;
 ```
 
-Defined in: main.ts:57
+Defined in: [main.ts:57](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L57)
 
 Gives you the cardinal direction based on degrees (crude version).
 Note: The degrees start at 0, which is EAST (originally, north should be 0, but here, north is 270),
