@@ -50,7 +50,7 @@
     }
   },
   "devDependencies": {
-    "@eslint/js": "^9.20.0",
+    "@eslint/js": "^9.26.0",
     "@phun-ky/eslint-config": "^0.1.9",
     "@release-it/conventional-changelog": "^8.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
