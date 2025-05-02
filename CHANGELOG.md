@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.2](https://github.com/phun-ky/cardinal/compare/1.0.1...1.0.2) (2025-05-02)
+
+### Tasks
+
+* 🤖 bump the major-updates group with 10 updates ([6c82b11](https://github.com/phun-ky/cardinal/commit/6c82b11ea6bbc88375f789d80c3b1a01b75467f6))
+
 ## 1.0.1 (2025-05-02)
 
 
