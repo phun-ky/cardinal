@@ -2,21 +2,78 @@
 
 ---
 
-> Last updated 2025-05-02T22:18:44.237Z
+> Last updated 2025-05-03T09:19:49.039Z
+
+## Type Aliases
+
+### CardinalDirectionCrudeType
+
+```ts
+type CardinalDirectionCrudeType = 'north' | 'south' | 'west' | 'east';
+```
+
+Defined in: [main.ts:34](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L34)
+
+---
+
+### CardinalDirectionDetailedType
+
+```ts
+type CardinalDirectionDetailedType =
+  | 'north'
+  | 'north-east'
+  | 'north-west'
+  | 'north-north-east'
+  | 'north-north-west'
+  | 'south'
+  | 'south-east'
+  | 'south-west'
+  | 'south-south-east'
+  | 'south-south-west'
+  | 'west'
+  | 'north-west'
+  | 'south-west'
+  | 'west-south-west'
+  | 'west-north-west'
+  | 'east'
+  | 'north-east'
+  | 'south-east'
+  | 'east-south-east'
+  | 'east-north-east';
+```
+
+Defined in: [main.ts:2](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L2)
+
+---
+
+### CardinalDirectionType
+
+```ts
+type CardinalDirectionType =
+  | 'east'
+  | 'south-east'
+  | 'south'
+  | 'south-west'
+  | 'west'
+  | 'north-west'
+  | 'north'
+  | 'north-east';
+```
+
+Defined in: [main.ts:24](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L24)
 
 ## Functions
 
-### cardinal_direction()
+### cardinalDirection()
 
 ```ts
-function cardinal_direction(degrees): string;
+function cardinalDirection(degrees): CardinalDirectionType;
 ```
 
-Defined in: [main.ts:18](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L18)
+Defined in: [main.ts:93](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L93)
 
-Gives you the cardinal direction based on degrees.
-Note: The degrees start at 0, which is EAST (originally, north should be 0, but here, north is 270),
-and we travel clockwise.
+Returns the 8-point cardinal direction based on degrees.
+Note: 0 degrees is EAST, increasing clockwise.
 
 #### Parameters
 
@@ -26,9 +83,9 @@ and we travel clockwise.
 
 #### Returns
 
-`string`
+[`CardinalDirectionType`](#cardinaldirectiontype)
 
-- The cardinal direction.
+- The 8-point cardinal direction.
 
 #### Throws
 
@@ -41,23 +98,21 @@ Parameter cannot be lower than 0.
 #### Example
 
 ```ts
-// Get the cardinal direction for an angle in degrees
-const direction = cardinal_direction(45);
+const direction = cardinalDirection(135); // "south"
 ```
 
 ---
 
-### cardinal_direction_crude()
+### cardinalDirectionCrude()
 
 ```ts
-function cardinal_direction_crude(degrees): string;
+function cardinalDirectionCrude(degrees): CardinalDirectionCrudeType;
 ```
 
-Defined in: [main.ts:57](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L57)
+Defined in: [main.ts:127](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L127)
 
-Gives you the cardinal direction based on degrees (crude version).
-Note: The degrees start at 0, which is EAST (originally, north should be 0, but here, north is 270),
-and we travel clockwise.
+Returns the crude 4-point cardinal direction based on degrees.
+Note: 0 degrees is EAST, increasing clockwise.
 
 #### Parameters
 
@@ -67,9 +122,9 @@ and we travel clockwise.
 
 #### Returns
 
-`string`
+[`CardinalDirectionCrudeType`](#cardinaldirectioncrudetype)
 
-- The cardinal direction (NSEW).
+- The 4-point cardinal direction.
 
 #### Throws
 
@@ -82,8 +137,46 @@ Parameter cannot be lower than 0.
 #### Example
 
 ```ts
-// Get the cardinal direction (crude) for an angle in degrees
-const direction = cardinal_direction_crude(45);
+const direction = cardinalDirectionCrude(200); // "west"
+```
+
+---
+
+### cardinalDirectionDetailed()
+
+```ts
+function cardinalDirectionDetailed(degrees): CardinalDirectionDetailedType;
+```
+
+Defined in: [main.ts:49](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L49)
+
+Returns the detailed 16-point cardinal direction based on degrees.
+Note: 0 degrees is EAST, increasing clockwise.
+
+#### Parameters
+
+| Parameter | Type     | Description           |
+| --------- | -------- | --------------------- |
+| `degrees` | `number` | The angle in degrees. |
+
+#### Returns
+
+[`CardinalDirectionDetailedType`](#cardinaldirectiondetailedtype)
+
+- The 16-point cardinal direction.
+
+#### Throws
+
+Parameter cannot exceed 360.
+
+#### Throws
+
+Parameter cannot be lower than 0.
+
+#### Example
+
+```ts
+const direction = cardinalDirectionDetailed(101.25); // "south-south-east"
 ```
 
 ---
