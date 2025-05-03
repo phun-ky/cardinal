@@ -1,15 +1,79 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 
-import { cardinal_direction, cardinal_direction_crude } from '../main';
+import {
+  cardinalDirection,
+  cardinalDirectionCrude,
+  cardinalDirectionDetailed
+} from '../main';
 
 describe('Cardinal Direction Functions', () => {
-  it('cardinal_direction should return the cardinal direction based on degrees', () => {
-    // Test cases for cardinal_direction
-    const direction1 = cardinal_direction(45);
-    const direction2 = cardinal_direction(135);
-    const direction3 = cardinal_direction(225);
-    const direction4 = cardinal_direction(315);
+  it('throws RangeError if degrees < 0', () => {
+    assert.throws(() => cardinalDirectionDetailed(-1), {
+      name: 'RangeError',
+      message: 'Parameter cannot be lower than 0'
+    });
+  });
+
+  it('throws RangeError if degrees > 360', () => {
+    assert.throws(() => cardinalDirectionDetailed(361), {
+      name: 'RangeError',
+      message: 'Parameter cannot exceed 360'
+    });
+  });
+
+  it('returns correct direction for all 16 segments', () => {
+    const cases = [
+      [0, 'east'],
+      [11.24, 'east'],
+      [11.25, 'east-south-east'],
+      [33.74, 'east-south-east'],
+      [33.75, 'south-east'],
+      [56.24, 'south-east'],
+      [56.25, 'south-south-east'],
+      [78.74, 'south-south-east'],
+      [78.75, 'south'],
+      [101.24, 'south'],
+      [101.25, 'south-south-west'],
+      [123.74, 'south-south-west'],
+      [123.75, 'south-west'],
+      [146.24, 'south-west'],
+      [146.25, 'west-south-west'],
+      [168.74, 'west-south-west'],
+      [168.75, 'west'],
+      [191.24, 'west'],
+      [191.25, 'west-north-west'],
+      [213.74, 'west-north-west'],
+      [213.75, 'north-west'],
+      [236.24, 'north-west'],
+      [236.25, 'north-north-west'],
+      [258.74, 'north-north-west'],
+      [258.75, 'north'],
+      [281.24, 'north'],
+      [281.25, 'north-north-east'],
+      [303.74, 'north-north-east'],
+      [303.75, 'north-east'],
+      [326.24, 'north-east'],
+      [326.25, 'east-north-east'],
+      [348.74, 'east-north-east'],
+      [348.75, 'east'],
+      [360, 'east']
+    ];
+
+    for (const [deg, expected] of cases) {
+      assert.equal(
+        cardinalDirectionDetailed(deg as number),
+        expected,
+        `Failed for ${deg}`
+      );
+    }
+  });
+  it('cardinalDirection should return the cardinal direction based on degrees', () => {
+    // Test cases for cardinalDirection
+    const direction1 = cardinalDirection(45);
+    const direction2 = cardinalDirection(135);
+    const direction3 = cardinalDirection(225);
+    const direction4 = cardinalDirection(315);
 
     assert.equal(direction1, 'south-east');
     assert.equal(direction2, 'south-west');
@@ -17,28 +81,28 @@ describe('Cardinal Direction Functions', () => {
     assert.equal(direction4, 'north-east');
   });
 
-  it('cardinal_direction_crude should return the cardinal direction based on degrees (crude)', () => {
-    // Test cases for cardinal_direction_crude
-    const direction1 = cardinal_direction_crude(45);
-    const direction2 = cardinal_direction_crude(135);
-    const direction3 = cardinal_direction_crude(225);
-    const direction4 = cardinal_direction_crude(315);
+  it('cardinalDirectionCrude should return the cardinal direction based on degrees (crude)', () => {
+    // Test cases for cardinalDirectionCrude
+    const direction1 = cardinalDirectionCrude(45);
+    const direction2 = cardinalDirectionCrude(135);
+    const direction3 = cardinalDirectionCrude(225);
+    const direction4 = cardinalDirectionCrude(315);
 
     assert.equal(direction1, 'south');
-    assert.equal(direction2, 'south');
-    assert.equal(direction3, 'west');
-    assert.equal(direction4, 'north');
+    assert.equal(direction2, 'west');
+    assert.equal(direction3, 'north');
+    assert.equal(direction4, 'east');
   });
 
   it('should throw a RangeError when degrees exceed 360', () => {
     // Test if it throws an error when degrees exceed 360
-    assert.throws(() => cardinal_direction(361), RangeError);
-    assert.throws(() => cardinal_direction_crude(361), RangeError);
+    assert.throws(() => cardinalDirection(361), RangeError);
+    assert.throws(() => cardinalDirectionCrude(361), RangeError);
   });
 
   it('should throw a RangeError when degrees are lower than 0', () => {
     // Test if it throws an error when degrees are lower than 0
-    assert.throws(() => cardinal_direction(-1), RangeError);
-    assert.throws(() => cardinal_direction_crude(-1), RangeError);
+    assert.throws(() => cardinalDirection(-1), RangeError);
+    assert.throws(() => cardinalDirectionCrude(-1), RangeError);
   });
 });
