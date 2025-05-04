@@ -1,12 +1,12 @@
 # @phun-ky/cardinal
 
-![Cardinal: A snippet that gives you the cardinal direction based on degrees](./public/cardinal-logo-small.png)
+![Cardinal: A set of JavaScript functions that gives you the cardinal direction based on degrees](./public/cardinal-logo-small.png)
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](http://makeapullrequest.com) [![SemVer 2.0](https://img.shields.io/badge/SemVer-2.0-green.svg)](http://semver.org/spec/v2.0.0.html) ![npm version](https://img.shields.io/npm/v/@phun-ky/cardinal) ![issues](https://img.shields.io/github/issues/phun-ky/cardinal) ![license](https://img.shields.io/npm/l/@phun-ky/cardinal) ![size](https://img.shields.io/bundlephobia/min/@phun-ky/cardinal) ![npm](https://img.shields.io/npm/dm/%40phun-ky/cardinal) ![GitHub Repo stars](https://img.shields.io/github/stars/phun-ky/cardinal) [![codecov](https://codecov.io/gh/phun-ky/cardinal/graph/badge.svg?token=VA91DL7ZLZ)](https://codecov.io/gh/phun-ky/cardinal) [![build](https://github.com/phun-ky/cardinal/actions/workflows/check.yml/badge.svg)](https://github.com/phun-ky/cardinal/actions/workflows/check.yml)
 
 ## About
 
-A snippet that gives you the cardinal direction based on degrees
+A set of JavaScript functions that gives you the cardinal direction based on degrees.
 
 ## Table of Contents<!-- omit from toc -->
 
