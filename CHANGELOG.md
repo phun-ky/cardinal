@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.1](https://github.com/phun-ky/cardinal/compare/2.0.0...2.0.1) (2025-05-04)
+
+### Tasks
+
+* 🤖 Remove deps not required ([5cc3613](https://github.com/phun-ky/cardinal/commit/5cc36131a4efa55c9f910e7ad20bdb2f27c15f29))
+
+### Documentation
+
+* ✏️ Update description ([bda5b51](https://github.com/phun-ky/cardinal/commit/bda5b51b513d8f925b646e0bd26f8f81a955f976))
+
 ## [2.0.0](https://github.com/phun-ky/cardinal/compare/1.0.2...2.0.0) (2025-05-03)
 
 ### ⚠ BREAKING CHANGES
