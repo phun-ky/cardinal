@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/phun-ky/cardinal/compare/2.0.1...2.0.2) (2025-05-05)
+
+### Tasks
+
+* 🤖 bump the minor-and-patch group with 3 updates ([2f3e925](https://github.com/phun-ky/cardinal/commit/2f3e92545ded2ee862ba002515b3dd569e4742e6))
+* 🤖 Disable rules for markdown files ([7d6d67b](https://github.com/phun-ky/cardinal/commit/7d6d67b82a9d61e635509876d5c40ff0bcc8d022))
+
 ## [2.0.1](https://github.com/phun-ky/cardinal/compare/2.0.0...2.0.1) (2025-05-04)
 
 ### Tasks
