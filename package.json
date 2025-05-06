@@ -21,7 +21,7 @@
   "license": "MIT",
   "author": "Alexander Vassbotn Røyne-Helgesen <alexander@phun-ky.net>",
   "type": "module",
-  "main": "dist/cardinal.js",
+  "exports": "./dist/cardinal.js",
   "types": "dist/cardinal.d.ts",
   "files": [
     "/dist/cardinal.js",
@@ -34,8 +34,8 @@
     "commit": "npx git-cz",
     "docs:gen": "node ./node_modules/.bin/typedoc",
     "release": "release-it",
-    "prerollup:dev": "npm run clean",
     "rollup": "rollup -c",
+    "prerollup:dev": "npm run clean",
     "rollup:dev": "rollup -c -w",
     "style:code": "npx putout src",
     "style:format": "./node_modules/.bin/eslint -c ./eslint.config.mjs src  --fix && ./node_modules/.bin/prettier --write ./eslint.config.mjs src",
@@ -50,17 +50,15 @@
     }
   },
   "devDependencies": {
-    "@phun-ky/eslint-config": "^0.1.9",
     "@release-it/conventional-changelog": "^10.0.1",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^0.4.4",
-    "@stylistic/eslint-plugin": "^4.2.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.4.2",
     "@types/node": "^22.15.3",
     "cobertura": "^1.0.1",
     "eslint": "^9.20.0",
-    "eslint-config-prettier": "^10.0.1",
+    "eslint-config-phun-ky": "^1.0.0",
     "git-cz": "^4.9.0",
     "glob": "^11.0.2",
     "global-jsdom": "^26.0.0",
@@ -82,7 +80,6 @@
     "typedoc-plugin-remark": "^2.0.0",
     "typedoc-plugin-rename-defaults": "^0.7.3",
     "typescript": "^5.0.0",
-    "typescript-eslint": "^8.23.0",
     "unified-prettier": "^2.0.1"
   },
   "engines": {
