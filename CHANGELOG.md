@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/phun-ky/cardinal/compare/2.0.2...2.0.3) (2025-05-06)
+
+### Tasks
+
+* 🤖 Use exports instead of main ([f2dfb58](https://github.com/phun-ky/cardinal/commit/f2dfb58230db329dcc22ea0cf173a0616573c9b3))
+* 🤖 Use new dep for eslint config ([f2a0f7d](https://github.com/phun-ky/cardinal/commit/f2a0f7d50eada0420fe6c706abcef8a88dd29cb9))
+
 ## [2.0.2](https://github.com/phun-ky/cardinal/compare/2.0.1...2.0.2) (2025-05-05)
 
 ### Tasks
