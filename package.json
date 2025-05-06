@@ -21,7 +21,7 @@
   "license": "MIT",
   "author": "Alexander Vassbotn Røyne-Helgesen <alexander@phun-ky.net>",
   "type": "module",
-  "main": "dist/cardinal.js",
+  "exports": "./dist/cardinal.js",
   "types": "dist/cardinal.d.ts",
   "files": [
     "/dist/cardinal.js",
