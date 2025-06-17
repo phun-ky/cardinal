@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.10](https://github.com/phun-ky/cardinal/compare/2.0.9...2.0.10) (2025-06-17)
+
+### Tasks
+
+* 🤖 bump @types/node in the major-updates group ([bf9ec41](https://github.com/phun-ky/cardinal/commit/bf9ec419e6f8b644c384eb2d9bb2dbfa880be04e))
+
 ## [2.0.9](https://github.com/phun-ky/cardinal/compare/2.0.8...2.0.9) (2025-06-17)
 
 ### Tasks
