@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.19](https://github.com/phun-ky/cardinal/compare/2.0.18...2.0.19) (2025-09-15)
+
+### Tasks
+
+* 🤖 bump the minor-and-patch group with 5 updates ([70ba61f](https://github.com/phun-ky/cardinal/commit/70ba61f5fe0582705583f000c38a14e20f5a9f5c))
+
 ## [2.0.18](https://github.com/phun-ky/cardinal/compare/2.0.17...2.0.18) (2025-09-09)
 
 ### Tasks

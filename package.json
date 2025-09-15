@@ -1,6 +1,6 @@
 {
   "name": "@phun-ky/cardinal",
-  "version": "2.0.18",
+  "version": "2.0.19",
   "description": "A set of JavaScript functions that gives you the cardinal direction based on degrees",
   "keywords": [
     "cardinal",
