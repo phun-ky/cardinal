@@ -62,7 +62,7 @@
     "git-cz": "^4.9.0",
     "glob": "^11.0.2",
     "global-jsdom": "^26.0.0",
-    "jsdom": "^26.1.0",
+    "jsdom": "^27.0.0",
     "prettier": "^3.5.1",
     "putout": "^40.0.19",
     "release-it": "^19.0.1",
