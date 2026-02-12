@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.32](https://github.com/phun-ky/cardinal/compare/2.0.31...2.0.32) (2026-02-12)
+
+### Tasks
+
+* 🤖 bump the major-updates group across 1 directory with 6 updates ([b378ab1](https://github.com/phun-ky/cardinal/commit/b378ab163e446df6bd4156beff8109aa946faf4a))
+* 🤖 Prepare for OIDC, updated deps, replace glob with bin ([36c0b4f](https://github.com/phun-ky/cardinal/commit/36c0b4ff05c667b70dabb122b852baa8cfd51fcf))
+
 ## [2.0.31](///compare/2.0.30...2.0.31) (2025-11-25)
 
 ## [2.0.30](///compare/2.0.29...2.0.30) (2025-11-18)
