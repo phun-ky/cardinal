@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.34](https://github.com/phun-ky/cardinal/compare/2.0.33...2.0.34) (2026-02-17)
+
+### Tasks
+
+* 🤖 bump putout in the major-updates group across 1 directory ([a16dcbe](https://github.com/phun-ky/cardinal/commit/a16dcbe6ff5ffd0ca0e6dd3e2cdafca9bd251107))
+
 ## [2.0.33](https://github.com/phun-ky/cardinal/compare/2.0.32...2.0.33) (2026-02-17)
 
 ### Tasks
