@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.33](https://github.com/phun-ky/cardinal/compare/2.0.32...2.0.33) (2026-02-17)
+
+### Tasks
+
+* 🤖 bump the minor-and-patch group with 3 updates ([b21e60d](https://github.com/phun-ky/cardinal/commit/b21e60db07ba2556c61b4b447cfd4ffc78a6fe50))
+
 ## [2.0.32](https://github.com/phun-ky/cardinal/compare/2.0.31...2.0.32) (2026-02-12)
 
 ### Tasks
