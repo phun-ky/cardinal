@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.38](https://github.com/phun-ky/cardinal/compare/2.0.37...2.0.38) (2026-03-10)
+
+### Tasks
+
+* 🤖 bump @rollup/plugin-terser in the major-updates group ([65faff1](https://github.com/phun-ky/cardinal/commit/65faff1d526a96566979311ab01fc23ee66fd04e))
+
 ## [2.0.37](https://github.com/phun-ky/cardinal/compare/2.0.36...2.0.37) (2026-03-10)
 
 ### Tasks
