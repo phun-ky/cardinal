@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.42](https://github.com/phun-ky/cardinal/compare/2.0.41...2.0.42) (2026-04-14)
+
+### Tasks
+
+* 🤖 bump typescript from 5.9.3 to 6.0.2 in the major-updates group ([0ce13e9](https://github.com/phun-ky/cardinal/commit/0ce13e94cb57af3c0f3c6e2a1fd6caf1f89c8e68))
+* 🤖 Update tsconfig after breaking change from typescript ([e278d96](https://github.com/phun-ky/cardinal/commit/e278d96e1c8f334c220c848b4685c6564972afb0))
+
 ## [2.0.41](https://github.com/phun-ky/cardinal/compare/2.0.40...2.0.41) (2026-03-26)
 
 ### Tasks
