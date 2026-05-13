@@ -57,13 +57,13 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@types/node": "^25.2.2",
     "cobertura": "^1.0.1",
-    "eslint": "^9.20.0",
+    "eslint": "^10.0.0",
     "eslint-config-phun-ky": "^2.0.0",
     "git-cz": "^4.9.0",
     "glob-bin": "^1.0.0",
     "global-jsdom": "^29.0.0",
     "jsdom": "^29.0.0",
-    "prettier": "^3.5.1",
+    "prettier": "^3.8.0",
     "putout": "^42.0.3",
     "release-it": "^20.0.1",
     "remark-github": "^12.0.0",
@@ -83,8 +83,8 @@
     "unified-prettier": "^2.0.1"
   },
   "engines": {
-    "node": "^20.9.0 || >=22.0.0",
-    "npm": ">=10.8.2"
+    "node": ">=22.9.0",
+    "npm": ">=11.0.0"
   },
   "publishConfig": {
     "access": "public"
