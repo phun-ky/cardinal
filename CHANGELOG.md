@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/phun-ky/cardinal/compare/2.0.43...3.0.0) (2026-05-13)
+
+### ⚠ BREAKING CHANGES
+
+* 🧨 Drops support for Node.js v20 and older
+
+### Tasks
+
+* 🤖 bump the major-updates group across 1 directory with 3 updates ([5a5f447](https://github.com/phun-ky/cardinal/commit/5a5f447f3f806b5e9f908e8770a8d75436d079cb))
+* 🤖 Update tooling requirements ([be71d19](https://github.com/phun-ky/cardinal/commit/be71d19ec9e1986609c5f1525e14566817f333f9))
+
 ## [2.0.43](https://github.com/phun-ky/cardinal/compare/2.0.42...2.0.43) (2026-04-28)
 
 ### Tasks
