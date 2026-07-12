@@ -2,7 +2,7 @@
 
 ---
 
-> Last updated 2026-06-04T18:08:58.001Z
+> Last updated 2026-07-12T07:49:00.486Z
 
 ## Type Aliases
 
@@ -183,7 +183,7 @@ const direction = cardinalDirectionDetailed(101.25); // "south-south-east"
 
 **Contributing**
 
-Want to contribute? Please read the [CONTRIBUTING.md](https://github.com/phun-ky/cardinal/blob/main/CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](https://github.com/phun-ky/cardinal/blob/main/CODE_OF_CONDUCT.md)
+Want to contribute? Please read the [CONTRIBUTING.md](https://github.com/phun-ky/cardinal/blob/main/CONTRIBUTING.md) and [CODE\_OF\_CONDUCT.md](https://github.com/phun-ky/cardinal/blob/main/CODE_OF_CONDUCT.md)
 
 **Sponsor me**
 
