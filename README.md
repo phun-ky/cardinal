@@ -82,7 +82,7 @@ console.log(direction); // south-south-east
 function cardinalDirection(degrees): CardinalDirectionType;
 ```
 
-Defined in: [main.ts:92](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L92)
+Defined in: [main.ts:94](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L94)
 
 Returns the 8-point cardinal direction based on degrees.
 Note: 0 degrees is EAST, increasing clockwise.
@@ -121,7 +121,7 @@ const direction = cardinalDirection(135); // "south-west"
 function cardinalDirectionCrude(degrees): CardinalDirectionCrudeType;
 ```
 
-Defined in: [main.ts:126](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L126)
+Defined in: [main.ts:128](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L128)
 
 Returns the crude 4-point cardinal direction based on degrees.
 Note: 0 degrees is EAST, increasing clockwise.
@@ -160,7 +160,7 @@ const direction = cardinalDirectionCrude(200); // "west"
 function cardinalDirectionDetailed(degrees): CardinalDirectionDetailedType;
 ```
 
-Defined in: [main.ts:48](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L48)
+Defined in: [main.ts:50](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L50)
 
 Returns the detailed 16-point cardinal direction based on degrees.
 Note: 0 degrees is EAST, increasing clockwise.
