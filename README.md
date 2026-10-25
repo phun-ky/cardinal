@@ -82,7 +82,7 @@ console.log(direction); // south-south-east
 function cardinalDirection(degrees): CardinalDirectionType;
 ```
 
-Defined in: [main.ts:93](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L93)
+Defined in: [main.ts:92](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L92)
 
 Returns the 8-point cardinal direction based on degrees.
 Note: 0 degrees is EAST, increasing clockwise.
@@ -95,7 +95,7 @@ Note: 0 degrees is EAST, increasing clockwise.
 
 #### Returns
 
-[`CardinalDirectionType`](#cardinaldirectiontype)
+[`CardinalDirectionType`](https://github.com/phun-ky/cardinal/blob/main/api/README.md#cardinaldirectiontype)
 
 - The 8-point cardinal direction.
 
@@ -121,7 +121,7 @@ const direction = cardinalDirection(135); // "south-west"
 function cardinalDirectionCrude(degrees): CardinalDirectionCrudeType;
 ```
 
-Defined in: [main.ts:127](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L127)
+Defined in: [main.ts:126](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L126)
 
 Returns the crude 4-point cardinal direction based on degrees.
 Note: 0 degrees is EAST, increasing clockwise.
@@ -134,7 +134,7 @@ Note: 0 degrees is EAST, increasing clockwise.
 
 #### Returns
 
-[`CardinalDirectionCrudeType`](#cardinaldirectioncrudetype)
+[`CardinalDirectionCrudeType`](https://github.com/phun-ky/cardinal/blob/main/api/README.md#cardinaldirectioncrudetype)
 
 - The 4-point cardinal direction.
 
@@ -160,7 +160,7 @@ const direction = cardinalDirectionCrude(200); // "west"
 function cardinalDirectionDetailed(degrees): CardinalDirectionDetailedType;
 ```
 
-Defined in: [main.ts:49](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L49)
+Defined in: [main.ts:48](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L48)
 
 Returns the detailed 16-point cardinal direction based on degrees.
 Note: 0 degrees is EAST, increasing clockwise.
@@ -173,7 +173,7 @@ Note: 0 degrees is EAST, increasing clockwise.
 
 #### Returns
 
-[`CardinalDirectionDetailedType`](#cardinaldirectiondetailedtype)
+[`CardinalDirectionDetailedType`](https://github.com/phun-ky/cardinal/blob/main/api/README.md#cardinaldirectiondetailedtype)
 
 - The 16-point cardinal direction.
 

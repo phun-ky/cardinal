@@ -43,18 +43,21 @@
     "check:pack": "node scripts/check-pack.mjs",
     "clean": "rm -rf dist dts",
     "commit": "npx git-cz",
+    "docs:check": "typedoc --emit none --treatWarningsAsErrors",
     "docs:gen": "node ./node_modules/.bin/typedoc",
+    "prepare": "git config core.hooksPath .githooks || true",
+    "prerollup:dev": "npm run clean",
+    "pretest:ci": "rm -rf coverage && mkdir -p coverage",
     "release": "release-it",
     "release:dry-run": ".github/scripts/should-release.sh && release-it --ci --dry-run --github.release=false --no-npm.publish --no-git.requireCleanWorkingDir --no-git.requireUpstream",
     "rollup": "rollup -c",
-    "prerollup:dev": "npm run clean",
     "rollup:dev": "rollup -c -w",
-    "style:code": "npx putout src",
-    "style:format": "./node_modules/.bin/eslint -c ./eslint.config.mjs src  --fix && ./node_modules/.bin/prettier --write ./eslint.config.mjs src",
-    "style:lint": "./node_modules/.bin/eslint -c ./eslint.config.mjs src && ./node_modules/.bin/prettier --check src",
-    "test": "glob-bin -c \"node --import tsx --import global-jsdom/register --test --no-warnings\" \"./src/**/__tests__/**/*.[jt]s\"",
-    "pretest:ci": "rm -rf coverage && mkdir -p coverage",
-    "test:ci": "glob-bin -c \"node --import tsx --import global-jsdom/register --test --no-warnings --experimental-test-coverage --test-reporter=cobertura --test-reporter-destination=coverage/cobertura-coverage.xml --test-reporter=spec --test-reporter-destination=stdout\" \"./src/**/__tests__/**/*.[jt]s\""
+    "style:format": "eslint . --fix",
+    "style:format-check": "prettier --check '**/*.{json,yml,yaml}'",
+    "style:lint": "eslint .",
+    "test": "node --import tsx --test --enable-source-maps 'src/**/__tests__/**/*.ts'",
+    "test:ci": "node --import tsx --test --enable-source-maps --experimental-test-coverage --test-coverage-include='src/**/*.ts' --test-coverage-exclude='src/**/__tests__/**' --test-coverage-lines=90.9 --test-coverage-functions=100 --test-coverage-branches=100 --test-reporter=cobertura --test-reporter-destination=coverage/cobertura-coverage.xml --test-reporter=spec --test-reporter-destination=stdout 'src/**/__tests__/**/*.ts'",
+    "typecheck": "tsc -p tsconfig.json"
   },
   "config": {
     "commitizen": {
@@ -66,19 +69,14 @@
     "@release-it/conventional-changelog": "^12.0.2",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-terser": "^1.0.0",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.4.2",
-    "@types/node": "^25.2.2",
+    "@types/node": "^24.19.2",
     "cobertura": "^1.0.1",
     "eslint": "^10.0.0",
-    "eslint-config-phun-ky": "^2.0.0",
+    "eslint-config-phun-ky": "^2.0.10",
     "git-cz": "^4.9.0",
-    "glob-bin": "^1.0.0",
-    "global-jsdom": "^29.0.0",
-    "jsdom": "^29.0.0",
+    "globals": "^17.13.0",
     "prettier": "^3.8.0",
     "publint": "^0.3.25",
-    "putout": "^42.0.3",
     "release-it": "^21.1.1",
     "remark-github": "^12.0.0",
     "remark-toc": "^9.0.0",
@@ -87,10 +85,8 @@
     "rollup-plugin-typescript2": "^0.37.0",
     "tsx": "^4.7.1",
     "typedoc": "^0.28.3",
-    "typedoc-plugin-frontmatter": "^1.3.0",
     "typedoc-plugin-markdown": "^4.6.3",
     "typedoc-plugin-mdn-links": "^5.0.1",
-    "typedoc-plugin-no-inherit": "^1.6.1",
     "typedoc-plugin-remark": "^2.0.0",
     "typedoc-plugin-rename-defaults": "^0.7.3",
     "typescript": "^6.0.2",
@@ -102,5 +98,13 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "overrides": {
+    "get-uri": {
+      "basic-ftp": "^6.2.3"
+    },
+    "release-it": {
+      "undici": "^7.30.1"
+    }
   }
 }

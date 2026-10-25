@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 // @ts-check
 
 import { MarkdownTheme, MarkdownThemeContext } from 'typedoc-plugin-markdown';
@@ -44,14 +43,14 @@ class MyMarkdownTheme extends MarkdownTheme {
    * @param {import('typedoc-plugin-markdown').MarkdownPageEvent} page
    */
   getRenderContext(page) {
-    // @ts-ignore
+    // @ts-expect-error The page's type is generic in typedoc-plugin-markdown's types
     return new MyMarkdownThemeContext(this, page, this.application.options);
   }
 }
 
 class MyMarkdownThemeContext extends MarkdownThemeContext {
   partials = {
-    // @ts-ignore
+    // @ts-expect-error The base class sets partials before this field runs
     ...this.partials,
     header: () => {
       return '';
