@@ -30,6 +30,7 @@
   ],
   "scripts": {
     "build": "npm run clean && npm run rollup",
+    "check:pack": "node scripts/check-pack.mjs",
     "clean": "rm -rf dist dts",
     "commit": "npx git-cz",
     "docs:gen": "node ./node_modules/.bin/typedoc",

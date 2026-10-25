@@ -53,6 +53,8 @@ jobs:
           npm i
       - name: Build # Build all packages
         run: npm run build
+      - name: Check the packed package # Installs the tarball and calls it like a consumer
+        run: npm run check:pack
       - name: Test
         run: npm run test:ci
       - name: Upload coverage reports to Codecov
