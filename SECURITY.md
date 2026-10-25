@@ -125,8 +125,10 @@ Advisory Database:
 | Licence outside the policy | New runtime dependency | Not merged                                                                                       |
 
 **Accepted exceptions.** A vulnerability that can't be fixed yet and can't be
-exploited through this project is allowed in dependency review and listed here.
-Each one is removed as soon as a fix is reachable:
+exploited through this project is allowed in dependency review, listed here, and
+recorded as an [OpenVEX](https://openvex.dev/) statement in
+[`vex.openvex.json`](vex.openvex.json). Each one is removed as soon as a fix is
+reachable:
 
 | Advisory                                                                       | Package      | Why it is accepted                                                                                                                                                                               | Remove when                                               |
 | ------------------------------------------------------------------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- |
@@ -159,3 +161,8 @@ Publishing to npm needs no secret: it uses short-lived OIDC tokens from GitHub.
   available to workflows run from forks.
 - **Rotation:** at least once a year, and immediately if one may have been
   exposed.
+
+## Assurance Case
+
+Why these expectations hold, where they don't hold yet, and the threat model and
+trust boundaries behind them are set out in the [assurance case](ASSURANCE.md).
