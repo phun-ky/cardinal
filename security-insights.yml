@@ -84,13 +84,12 @@ repository:
   security:
     assessments:
       self:
-        evidence: https://github.com/phun-ky/cardinal/blob/main/SECURITY.md#security-expectations
+        evidence: https://github.com/phun-ky/cardinal/blob/main/ASSURANCE.md
         date: '2026-10-25'
         comment: |
-          The security expectations list what the functions guarantee (no
-          side effects, no dynamic code, no runtime dependencies, range
-          checks) and what they don't (type checks), checked against the
-          code and its behaviour on 3.0.6.
+          The assurance case covers what is protected, the threat model,
+          trust boundaries, the secure design principles applied, the
+          common weaknesses countered and the known gaps.
     tools:
       - name: CodeQL
         type: SAST
