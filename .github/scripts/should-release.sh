@@ -49,10 +49,32 @@ echo "Commits since $last_tag touching published files:"
 
 release=false
 
+# A commit reverted since the last tag cancels out with its revert, as it
+# does in the changelog: neither counts.
+range=$(git log --no-merges --format=%H "$last_tag..HEAD")
+cancelled=" "
+
+while read -r sha; do
+  [[ -z "$sha" ]] && continue
+
+  reverted=$(git log -1 --format=%b "$sha" |
+    sed -nE 's/^This reverts commit ([0-9a-f]{40}).*/\1/p' | head -1)
+
+  if [[ -n "$reverted" ]] && grep -qx "$reverted" <<< "$range"; then
+    cancelled+="$sha $reverted "
+  fi
+done <<< "$range"
+
 while read -r sha; do
   [[ -z "$sha" ]] && continue
 
   subject=$(git log -1 --format=%s "$sha")
+
+  if [[ "$cancelled" == *" $sha "* ]]; then
+    echo "  ${sha:0:7} ${subject}  <- reverted since $last_tag"
+    continue
+  fi
+
   body=$(git log -1 --format=%b "$sha")
   reason=""
 
