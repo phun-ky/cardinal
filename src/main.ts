@@ -43,7 +43,7 @@ export type CardinalDirectionCrudeType = 'north' | 'south' | 'west' | 'east';
  * @returns {string} - The 16-point cardinal direction.
  * @example
  * ```ts
- * const direction = cardinalDirectionDetailed(101.25); // "south-south-east"
+ * const direction = cardinalDirectionDetailed(101.25); // "south-south-west"
  * ```
  */
 export const cardinalDirectionDetailed = (
@@ -87,7 +87,7 @@ export const cardinalDirectionDetailed = (
  * @returns {string} - The 8-point cardinal direction.
  * @example
  * ```ts
- * const direction = cardinalDirection(135); // "south"
+ * const direction = cardinalDirection(135); // "south-west"
  * ```
  */
 export const cardinalDirection = (degrees: number): CardinalDirectionType => {

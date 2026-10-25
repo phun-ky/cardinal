@@ -1,9 +1,10 @@
 // Check what npm would publish: pack the package, check the tarball holds the
-// files package.json points at, its LICENSE and README, and no tests, lint it
-// with publint and @arethetypeswrong/cli, then install it in an empty project,
-// check every source map resolves, and call every function through import,
-// require and a browser bundle. It also checks that the build bundles no
-// dependencies. Run after `npm run build`.
+// files package.json points at, its LICENSE, README and CHANGELOG, and no
+// tests, lint it with publint and @arethetypeswrong/cli, then install it in an
+// empty project, check every source map resolves, and call every function
+// through import, require, the dist path and a browser bundle, and run every
+// example. It also checks that the build bundles no dependencies. Run after
+// `npm run build`.
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { rollup } from 'rollup';
 
@@ -90,7 +91,12 @@ try {
   const files = new Set(packed.files.map((file) => file.path));
 
   // npm adds LICENSE and README.md on its own, if the package has them
-  for (const path of [...entryPoints(pkg), 'LICENSE', 'README.md']) {
+  for (const path of [
+    ...entryPoints(pkg),
+    'LICENSE',
+    'README.md',
+    'CHANGELOG.md'
+  ]) {
     if (!files.has(path)) problems.push(`${path} is not in the tarball`);
   }
 
@@ -222,6 +228,18 @@ try {
         '--no-warnings',
         '-e',
         `${expect} check('require', require(${name}));`
+      ],
+      // Deep imports worked before exports existed, and must keep working
+      'dist path import': [
+        '--input-type=module',
+        '-e',
+        `${expect} check('dist path', await import(${JSON.stringify(`${pkg.name}/dist/cardinal.js`)}));`
+      ],
+      // Tools read a package's own package.json through resolution
+      'package.json import': [
+        '--input-type=module',
+        '-e',
+        `const { default: json } = await import(${JSON.stringify(`${pkg.name}/package.json`)}, { with: { type: 'json' } }); if (json.version !== ${JSON.stringify(pkg.version)}) throw new Error('package.json gave ' + json.version); console.log('package.json: ' + json.name + '@' + json.version);`
       ]
     };
 
@@ -232,6 +250,62 @@ try {
         problems.push(`${how} of the installed tarball failed`);
       }
     }
+
+    // Every example in the README and in the JSDoc (shipped in the .d.ts)
+    // runs against the installed tarball, and each value it logs or assigns
+    // must match the comment after it: `const x = f(1); // "east"`
+    const examples = new Map();
+    const readme = readFileSync(join(ROOT, 'README.md'), 'utf8');
+    const declarations = readFileSync(
+      join(installed, pkg.types.replace(/^\.\//, '')),
+      'utf8'
+    );
+
+    for (const [, code] of readme.matchAll(/```(?:ts|js)\n([\s\S]*?)```/g))
+      examples.set(code, 'README.md');
+
+    for (const [, code] of declarations.matchAll(/```ts\n([\s\S]*?)\s*\* ```/g))
+      examples.set(code.replace(/^\s*\* ?/gm, ''), pkg.types);
+
+    const RESULT = /^(.*?);?\s*\/\/\s*"?([\w-]+)"?\s*$/;
+    let ran = 0;
+
+    for (const [code, file] of examples) {
+      const lines = code.split('\n');
+
+      if (!lines.some((line) => RESULT.test(line))) continue;
+
+      const checked = lines.map((line) => {
+        const [, statement, expected] = line.match(RESULT) ?? [];
+
+        if (!statement) return line;
+
+        const logged = statement.match(/^console\.log\((.*)\)$/);
+        const assigned = statement.match(/^const (\w+) = (.*)$/);
+        const value = logged?.[1] ?? assigned?.[1];
+
+        if (!value) return line;
+
+        return `${assigned ? `${statement};\n` : ''}if (${value} !== ${JSON.stringify(expected)}) throw new Error(${JSON.stringify(`${file}: ${line.trim()}`)} + ' gives ' + ${value});`;
+      });
+      const imports = code.includes('import ')
+        ? ''
+        : `import { ${Object.keys(EXPECTED).join(', ')} } from ${name};\n`;
+      const example = join(app, `example-${ran++}.mjs`);
+
+      writeFileSync(example, `${imports}${checked.join('\n')}\n`);
+
+      try {
+        execFileSync('node', [example], { cwd: app, stdio: 'pipe' });
+      } catch (error) {
+        problems.push(
+          `an example doesn't do what its comment says: ${String(error.stderr).match(/Error: (.*)/)?.[1] ?? error}`
+        );
+      }
+    }
+
+    if (ran === 0) problems.push('no examples found in README.md or the types');
+    else console.log(`examples: ${ran} run against the installed tarball`);
 
     // A browser bundler resolving the package from the app
     try {
