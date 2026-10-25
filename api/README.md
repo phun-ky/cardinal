@@ -2,7 +2,7 @@
 
 ---
 
-> Last updated 2026-08-08T09:59:32.991Z
+> Last updated 2026-10-25T16:49:27.046Z
 
 ## Type Aliases
 
@@ -98,7 +98,7 @@ Parameter cannot be lower than 0.
 #### Example
 
 ```ts
-const direction = cardinalDirection(135); // "south"
+const direction = cardinalDirection(135); // "south-west"
 ```
 
 ---
@@ -176,7 +176,7 @@ Parameter cannot be lower than 0.
 #### Example
 
 ```ts
-const direction = cardinalDirectionDetailed(101.25); // "south-south-east"
+const direction = cardinalDirectionDetailed(101.25); // "south-south-west"
 ```
 
 ---

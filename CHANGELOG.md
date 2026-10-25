@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.0.6](https://github.com/phun-ky/cardinal/compare/3.0.5...3.0.6) (2026-10-25)
+
+### Tasks
+
+* 🤖 upgrade release-it to 21 and set changelog effects ([6669295](https://github.com/phun-ky/cardinal/commit/66692952c59442f8a37d53070b36266f9d9eaec2)), references [#94](https://github.com/phun-ky/cardinal/issues/94)
+
+### Bug
+
+* 🐛 correct the wrong JSDoc examples in the types and README ([ab753f4](https://github.com/phun-ky/cardinal/commit/ab753f4d512a3c66a41199b574c563e971fcfd4a)), closes [#91](https://github.com/phun-ky/cardinal/issues/91)
+* 🐛 export package.json and the dist path, ship CHANGELOG ([84d4baf](https://github.com/phun-ky/cardinal/commit/84d4bafd6506c98262a0e1c9570a9c5f06d417aa)), closes [#93](https://github.com/phun-ky/cardinal/issues/93)
+* 🐛 point homepage at the GitHub README ([a67c5c2](https://github.com/phun-ky/cardinal/commit/a67c5c27197edc02b6e6f5a9785d237cbc171c31)), closes [#92](https://github.com/phun-ky/cardinal/issues/92)
+
 ## [3.0.5](https://github.com/phun-ky/cardinal/compare/3.0.4...3.0.5) (2026-08-08)
 
 ### Tasks
