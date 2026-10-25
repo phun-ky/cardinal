@@ -2,7 +2,7 @@
 
 ---
 
-> Last updated 2026-10-25T16:49:27.046Z
+> Last updated 2026-10-25T18:12:38.874Z
 
 ## Type Aliases
 
@@ -12,7 +12,7 @@
 type CardinalDirectionCrudeType = 'north' | 'south' | 'west' | 'east';
 ```
 
-Defined in: [main.ts:34](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L34)
+Defined in: [main.ts:33](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L33)
 
 ---
 
@@ -42,7 +42,7 @@ type CardinalDirectionDetailedType =
   | 'east-north-east';
 ```
 
-Defined in: [main.ts:2](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L2)
+Defined in: [main.ts:1](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L1)
 
 ---
 
@@ -60,7 +60,7 @@ type CardinalDirectionType =
   | 'north-east';
 ```
 
-Defined in: [main.ts:24](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L24)
+Defined in: [main.ts:23](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L23)
 
 ## Functions
 
@@ -70,7 +70,7 @@ Defined in: [main.ts:24](https://github.com/phun-ky/cardinal/blob/main/src/main.
 function cardinalDirection(degrees): CardinalDirectionType;
 ```
 
-Defined in: [main.ts:93](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L93)
+Defined in: [main.ts:94](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L94)
 
 Returns the 8-point cardinal direction based on degrees.
 Note: 0 degrees is EAST, increasing clockwise.
@@ -109,7 +109,7 @@ const direction = cardinalDirection(135); // "south-west"
 function cardinalDirectionCrude(degrees): CardinalDirectionCrudeType;
 ```
 
-Defined in: [main.ts:127](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L127)
+Defined in: [main.ts:128](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L128)
 
 Returns the crude 4-point cardinal direction based on degrees.
 Note: 0 degrees is EAST, increasing clockwise.
@@ -148,7 +148,7 @@ const direction = cardinalDirectionCrude(200); // "west"
 function cardinalDirectionDetailed(degrees): CardinalDirectionDetailedType;
 ```
 
-Defined in: [main.ts:49](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L49)
+Defined in: [main.ts:50](https://github.com/phun-ky/cardinal/blob/main/src/main.ts#L50)
 
 Returns the detailed 16-point cardinal direction based on degrees.
 Note: 0 degrees is EAST, increasing clockwise.
@@ -183,7 +183,7 @@ const direction = cardinalDirectionDetailed(101.25); // "south-south-west"
 
 **Contributing**
 
-Want to contribute? Please read the [CONTRIBUTING.md](https://github.com/phun-ky/cardinal/blob/main/CONTRIBUTING.md) and [CODE\_OF\_CONDUCT.md](https://github.com/phun-ky/cardinal/blob/main/CODE_OF_CONDUCT.md)
+Want to contribute? Please read the [CONTRIBUTING.md](https://github.com/phun-ky/cardinal/blob/main/CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](https://github.com/phun-ky/cardinal/blob/main/CODE_OF_CONDUCT.md)
 
 **Sponsor me**
 

@@ -7,7 +7,7 @@
     "typedoc-plugin-rename-defaults",
     "./custom-typedoc-plugin.js"
   ],
-  "out": "./api",
+  "out": "./docs/api",
   "tsconfig": "tsconfig.build.json",
   "outputFileStrategy": "modules",
   "interfacePropertiesFormat": "table",
