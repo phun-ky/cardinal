@@ -1,9 +1,10 @@
 // Check what npm would publish: pack the package, check the tarball holds the
-// files package.json points at, its LICENSE and README, and no tests, lint it
-// with publint and @arethetypeswrong/cli, then install it in an empty project,
-// check every source map resolves, and call every function through import,
-// require and a browser bundle. It also checks that the build bundles no
-// dependencies. Run after `npm run build`.
+// files package.json points at, its LICENSE, README and CHANGELOG, and no
+// tests, lint it with publint and @arethetypeswrong/cli, then install it in an
+// empty project, check every source map resolves, and call every function
+// through import, require, the dist path and a browser bundle, and run every
+// example. It also checks that the build bundles no dependencies. Run after
+// `npm run build`.
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { rollup } from 'rollup';
 
@@ -90,7 +91,12 @@ try {
   const files = new Set(packed.files.map((file) => file.path));
 
   // npm adds LICENSE and README.md on its own, if the package has them
-  for (const path of [...entryPoints(pkg), 'LICENSE', 'README.md']) {
+  for (const path of [
+    ...entryPoints(pkg),
+    'LICENSE',
+    'README.md',
+    'CHANGELOG.md'
+  ]) {
     if (!files.has(path)) problems.push(`${path} is not in the tarball`);
   }
 
@@ -222,6 +228,18 @@ try {
         '--no-warnings',
         '-e',
         `${expect} check('require', require(${name}));`
+      ],
+      // Deep imports worked before exports existed, and must keep working
+      'dist path import': [
+        '--input-type=module',
+        '-e',
+        `${expect} check('dist path', await import(${JSON.stringify(`${pkg.name}/dist/cardinal.js`)}));`
+      ],
+      // Tools read a package's own package.json through resolution
+      'package.json import': [
+        '--input-type=module',
+        '-e',
+        `const { default: json } = await import(${JSON.stringify(`${pkg.name}/package.json`)}, { with: { type: 'json' } }); if (json.version !== ${JSON.stringify(pkg.version)}) throw new Error('package.json gave ' + json.version); console.log('package.json: ' + json.name + '@' + json.version);`
       ]
     };
 
