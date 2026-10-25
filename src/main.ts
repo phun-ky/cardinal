@@ -32,6 +32,7 @@ export type CardinalDirectionType =
 
 export type CardinalDirectionCrudeType = 'north' | 'south' | 'west' | 'east';
 
+/* node:coverage disable */
 /**
  * Returns the detailed 16-point cardinal direction based on degrees.
  * Note: 0 degrees is EAST, increasing clockwise.
@@ -45,6 +46,7 @@ export type CardinalDirectionCrudeType = 'north' | 'south' | 'west' | 'east';
  * const direction = cardinalDirectionDetailed(101.25); // "south-south-west"
  * ```
  */
+/* node:coverage enable */
 export const cardinalDirectionDetailed = (
   degrees: number
 ): CardinalDirectionDetailedType => {
