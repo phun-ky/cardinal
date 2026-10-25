@@ -43,6 +43,7 @@
     "check:pack": "node scripts/check-pack.mjs",
     "clean": "rm -rf dist dts",
     "commit": "npx git-cz",
+    "docs:check": "typedoc --emit none --treatWarningsAsErrors",
     "docs:gen": "node ./node_modules/.bin/typedoc",
     "prerollup:dev": "npm run clean",
     "pretest:ci": "rm -rf coverage && mkdir -p coverage",
@@ -54,7 +55,8 @@
     "style:format-check": "prettier --check '**/*.{json,yml,yaml}'",
     "style:lint": "eslint .",
     "test": "node --import tsx --test --enable-source-maps 'src/**/__tests__/**/*.ts'",
-    "test:ci": "node --import tsx --test --enable-source-maps --experimental-test-coverage --test-reporter=cobertura --test-reporter-destination=coverage/cobertura-coverage.xml --test-reporter=spec --test-reporter-destination=stdout 'src/**/__tests__/**/*.ts'"
+    "test:ci": "node --import tsx --test --enable-source-maps --experimental-test-coverage --test-coverage-include='src/**/*.ts' --test-coverage-exclude='src/**/__tests__/**' --test-coverage-lines=90.9 --test-coverage-functions=100 --test-coverage-branches=100 --test-reporter=cobertura --test-reporter-destination=coverage/cobertura-coverage.xml --test-reporter=spec --test-reporter-destination=stdout 'src/**/__tests__/**/*.ts'",
+    "typecheck": "tsc -p tsconfig.json"
   },
   "config": {
     "commitizen": {

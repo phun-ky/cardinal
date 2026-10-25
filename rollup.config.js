@@ -50,6 +50,7 @@ export default [
     plugins: [
       nodeResolve(),
       ts({
+        tsconfig: 'tsconfig.build.json',
         useTsconfigDeclarationDir: true,
         sourceMap: false,
         typescript
