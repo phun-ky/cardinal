@@ -35,7 +35,7 @@
     "commit": "npx git-cz",
     "docs:gen": "node ./node_modules/.bin/typedoc",
     "release": "release-it",
-    "release:dry-run": ".github/scripts/should-release.sh && release-it --ci --dry-run --github.release=false --no-git.requireCleanWorkingDir --no-git.requireUpstream",
+    "release:dry-run": ".github/scripts/should-release.sh && release-it --ci --dry-run --github.release=false --no-npm.publish --no-git.requireCleanWorkingDir --no-git.requireUpstream",
     "rollup": "rollup -c",
     "prerollup:dev": "npm run clean",
     "rollup:dev": "rollup -c -w",
