@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 export type CardinalDirectionDetailedType =
   | 'north'
   | 'north-east'

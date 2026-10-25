@@ -268,6 +268,7 @@ try {
       examples.set(code.replace(/^\s*\* ?/gm, ''), pkg.types);
 
     const RESULT = /^(.*?);?\s*\/\/\s*"?([\w-]+)"?\s*$/;
+
     let ran = 0;
 
     for (const [code, file] of examples) {
