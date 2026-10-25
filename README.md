@@ -76,6 +76,8 @@ console.log(direction); // south-south-east
 
 ## API
 
+<!-- api:start: generated from docs/api/README.md by npm run docs:gen -->
+
 ### cardinalDirection()
 
 ```ts
@@ -95,7 +97,7 @@ Note: 0 degrees is EAST, increasing clockwise.
 
 #### Returns
 
-[`CardinalDirectionType`](https://github.com/phun-ky/cardinal/blob/main/api/README.md#cardinaldirectiontype)
+[`CardinalDirectionType`](https://github.com/phun-ky/cardinal/blob/main/docs/api/README.md#cardinaldirectiontype)
 
 - The 8-point cardinal direction.
 
@@ -134,7 +136,7 @@ Note: 0 degrees is EAST, increasing clockwise.
 
 #### Returns
 
-[`CardinalDirectionCrudeType`](https://github.com/phun-ky/cardinal/blob/main/api/README.md#cardinaldirectioncrudetype)
+[`CardinalDirectionCrudeType`](https://github.com/phun-ky/cardinal/blob/main/docs/api/README.md#cardinaldirectioncrudetype)
 
 - The 4-point cardinal direction.
 
@@ -173,7 +175,7 @@ Note: 0 degrees is EAST, increasing clockwise.
 
 #### Returns
 
-[`CardinalDirectionDetailedType`](https://github.com/phun-ky/cardinal/blob/main/api/README.md#cardinaldirectiondetailedtype)
+[`CardinalDirectionDetailedType`](https://github.com/phun-ky/cardinal/blob/main/docs/api/README.md#cardinaldirectiondetailedtype)
 
 - The 16-point cardinal direction.
 
@@ -190,6 +192,8 @@ Parameter cannot be lower than 0.
 ```ts
 const direction = cardinalDirectionDetailed(101.25); // "south-south-west"
 ```
+
+<!-- api:end -->
 
 ## Contributing
 
