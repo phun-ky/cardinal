@@ -31,8 +31,7 @@ concurrency:
 
 jobs:
   publish:
-    if:
-      github.event_name == 'workflow_dispatch' ||
+    if: github.event_name == 'workflow_dispatch' ||
       github.event.pull_request.merged == true
     runs-on: ubuntu-24.04
     permissions:
