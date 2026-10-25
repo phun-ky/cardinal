@@ -1,6 +1,7 @@
 {
   "git": {
-    "commitMessage": "chore: 🤖 release v${version}"
+    "commitMessage": "chore: 🤖 release v${version}",
+    "commitArgs": ["-s"]
   },
   "github": {
     "release": true,
@@ -11,7 +12,7 @@
     "skipChecks": true
   },
   "hooks": {
-    "after:bump": "npm run build && npm run docs:gen",
+    "after:bump": "npm run build && npm run check:pack && npm run docs:gen",
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },
   "plugins": {
