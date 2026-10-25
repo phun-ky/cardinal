@@ -21,13 +21,23 @@
   "license": "MIT",
   "author": "Alexander Vassbotn Røyne-Helgesen <alexander@phun-ky.net>",
   "type": "module",
-  "exports": "./dist/cardinal.js",
-  "types": "dist/cardinal.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/cardinal.d.ts",
+      "default": "./dist/cardinal.js"
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*"
+  },
+  "main": "./dist/cardinal.js",
+  "types": "./dist/cardinal.d.ts",
   "files": [
     "/dist/cardinal.js",
     "/dist/cardinal.js.map",
-    "/dist/cardinal.d.ts"
+    "/dist/cardinal.d.ts",
+    "/CHANGELOG.md"
   ],
+  "sideEffects": false,
   "scripts": {
     "build": "npm run clean && npm run rollup",
     "check:pack": "node scripts/check-pack.mjs",
