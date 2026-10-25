@@ -39,7 +39,9 @@
   ],
   "sideEffects": false,
   "scripts": {
+    "bestpractices:url": "node scripts/bestpractices-url.mjs",
     "build": "npm run clean && npm run rollup",
+    "check:bestpractices": "node scripts/check-bestpractices.mjs",
     "check:pack": "node scripts/check-pack.mjs",
     "clean": "rm -rf dist dts",
     "commit": "npx git-cz",
