@@ -45,6 +45,7 @@
     "commit": "npx git-cz",
     "docs:check": "typedoc --emit none --treatWarningsAsErrors",
     "docs:gen": "node ./node_modules/.bin/typedoc",
+    "prepare": "git config core.hooksPath .githooks || true",
     "prerollup:dev": "npm run clean",
     "pretest:ci": "rm -rf coverage && mkdir -p coverage",
     "release": "release-it",
