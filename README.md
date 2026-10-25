@@ -110,7 +110,7 @@ Parameter cannot be lower than 0.
 #### Example
 
 ```ts
-const direction = cardinalDirection(135); // "south"
+const direction = cardinalDirection(135); // "south-west"
 ```
 
 ---
@@ -188,7 +188,7 @@ Parameter cannot be lower than 0.
 #### Example
 
 ```ts
-const direction = cardinalDirectionDetailed(101.25); // "south-south-east"
+const direction = cardinalDirectionDetailed(101.25); // "south-south-west"
 ```
 
 ## Contributing
