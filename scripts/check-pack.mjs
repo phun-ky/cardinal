@@ -233,6 +233,62 @@ try {
       }
     }
 
+    // Every example in the README and in the JSDoc (shipped in the .d.ts)
+    // runs against the installed tarball, and each value it logs or assigns
+    // must match the comment after it: `const x = f(1); // "east"`
+    const examples = new Map();
+    const readme = readFileSync(join(ROOT, 'README.md'), 'utf8');
+    const declarations = readFileSync(
+      join(installed, pkg.types.replace(/^\.\//, '')),
+      'utf8'
+    );
+
+    for (const [, code] of readme.matchAll(/```(?:ts|js)\n([\s\S]*?)```/g))
+      examples.set(code, 'README.md');
+
+    for (const [, code] of declarations.matchAll(/```ts\n([\s\S]*?)\s*\* ```/g))
+      examples.set(code.replace(/^\s*\* ?/gm, ''), pkg.types);
+
+    const RESULT = /^(.*?);?\s*\/\/\s*"?([\w-]+)"?\s*$/;
+    let ran = 0;
+
+    for (const [code, file] of examples) {
+      const lines = code.split('\n');
+
+      if (!lines.some((line) => RESULT.test(line))) continue;
+
+      const checked = lines.map((line) => {
+        const [, statement, expected] = line.match(RESULT) ?? [];
+
+        if (!statement) return line;
+
+        const logged = statement.match(/^console\.log\((.*)\)$/);
+        const assigned = statement.match(/^const (\w+) = (.*)$/);
+        const value = logged?.[1] ?? assigned?.[1];
+
+        if (!value) return line;
+
+        return `${assigned ? `${statement};\n` : ''}if (${value} !== ${JSON.stringify(expected)}) throw new Error(${JSON.stringify(`${file}: ${line.trim()}`)} + ' gives ' + ${value});`;
+      });
+      const imports = code.includes('import ')
+        ? ''
+        : `import { ${Object.keys(EXPECTED).join(', ')} } from ${name};\n`;
+      const example = join(app, `example-${ran++}.mjs`);
+
+      writeFileSync(example, `${imports}${checked.join('\n')}\n`);
+
+      try {
+        execFileSync('node', [example], { cwd: app, stdio: 'pipe' });
+      } catch (error) {
+        problems.push(
+          `an example doesn't do what its comment says: ${String(error.stderr).match(/Error: (.*)/)?.[1] ?? error}`
+        );
+      }
+    }
+
+    if (ran === 0) problems.push('no examples found in README.md or the types');
+    else console.log(`examples: ${ran} run against the installed tarball`);
+
     // A browser bundler resolving the package from the app
     try {
       const entry = join(app, 'entry.js');
