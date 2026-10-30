@@ -91,7 +91,7 @@
     "typedoc-plugin-mdn-links": "^5.0.1",
     "typedoc-plugin-remark": "^2.0.0",
     "typedoc-plugin-rename-defaults": "^0.7.3",
-    "typescript": "^6.0.2",
+    "typescript": "^7.0.2",
     "unified-prettier": "^2.0.1"
   },
   "engines": {
